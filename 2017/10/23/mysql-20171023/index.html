@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>centos7.2上安装mysql及修改端口遇到的问题 | 相遇者众</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
-<meta name="keywords" content="mysql,centos">
+  <meta name="description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
+<meta name="keywords" content="mysql,centos,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7.2上安装mysql及修改端口遇到的问题">
 <meta property="og:url" content="http://yoursite.com/2017/10/23/mysql-20171023/index.html">
 <meta property="og:site_name" content="相遇者众">
-<meta property="og:description" content="##配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
+<meta property="og:description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/1.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/2.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/3.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/5.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/6.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/7.png">
-<meta property="og:updated_time" content="2017-10-23T07:51:14.866Z">
+<meta property="og:updated_time" content="2017-10-23T07:57:16.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7.2上安装mysql及修改端口遇到的问题">
-<meta name="twitter:description" content="##配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
+<meta name="twitter:description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
 <meta name="twitter:image" content="http://yoursite.com/mysql-20171023/1.png">
   
     <link rel="alternative" href="/atom.xml" title="相遇者众" type="application/atom+xml">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##配置YUM源<br>MySQL官网：<a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">http://dev.mysql.com/downloads/repo/yum/</a><br>mysql安装包下载：</p>
+        <h2 id="配置YUM源"><a href="#配置YUM源" class="headerlink" title="配置YUM源"></a>配置YUM源</h2><p>MySQL官网：<a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">http://dev.mysql.com/downloads/repo/yum/</a><br>mysql安装包下载：</p>
 <pre><code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
 </code></pre><a id="more"></a>
 <p>安装mysql源：</p>
@@ -192,43 +192,35 @@
 </code></pre><p>检查mysql源是否安装成功：</p>
 <pre><code>yum repolist enabled | grep &quot;mysql&quot;
 </code></pre><p>出现下图所示即安装成功：<br><img src="/mysql-20171023/1.png" alt=""></p>
-<p>##安装MySQL</p>
-<pre><code>yum install mysql-community-server
-</code></pre><p>##启动MySQL服务</p>
-<pre><code>systemctl start mysqld
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><pre><code>yum install mysql-community-server
+</code></pre><h2 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h2><pre><code>systemctl start mysqld
 </code></pre><p>或者</p>
 <pre><code>service start mysqld
 </code></pre><p>查看MySQL的启动状态<br>    systemctl status mysqld<br>出现下图所示，则成功：<br><img src="/mysql-20171023/2.png" alt=""></p>
-<p>##开机启动</p>
-<pre><code>systemctl enable mysqld
+<h2 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h2><pre><code>systemctl enable mysqld
 systemctl daemon-reload
-</code></pre><p>##修改root本地登录密码<br>mysql安装完成之后，在<code>/var/log/mysqld.log</code>文件中给root生成了一个默认密码</p>
-<p>######查看默认密码</p>
-<pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log
+</code></pre><h2 id="修改root本地登录密码"><a href="#修改root本地登录密码" class="headerlink" title="修改root本地登录密码"></a>修改root本地登录密码</h2><p>mysql安装完成之后，在<code>/var/log/mysqld.log</code>文件中给root生成了一个默认密码</p>
+<h6 id="查看默认密码"><a href="#查看默认密码" class="headerlink" title="查看默认密码"></a>查看默认密码</h6><pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log
 </code></pre><p>下图红框中即为默认密码：<br><img src="/mysql-20171023/3.png" alt=""></p>
-<p>######用默认密码登录mysql</p>
-<pre><code>mysql -u root -p
+<h6 id="用默认密码登录mysql"><a href="#用默认密码登录mysql" class="headerlink" title="用默认密码登录mysql"></a>用默认密码登录mysql</h6><pre><code>mysql -u root -p
 </code></pre><p>根据提示输入上面的默认密码，进入mysql</p>
-<p>######修改root登录密码</p>
-<pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; INDENTIFIED BY &apos;password&apos;;
+<h6 id="修改root登录密码"><a href="#修改root登录密码" class="headerlink" title="修改root登录密码"></a>修改root登录密码</h6><pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; INDENTIFIED BY &apos;password&apos;;
 </code></pre><p>或者</p>
 <pre><code>set password for &apos;root&apos;@&apos;localhost&apos;=password(&apos;password&apos;);
 </code></pre><p><strong>注意</strong>：mysql5.7默认安装了密码安全检查插件，要求密码必须包含：大小写字母、数字和特殊字符，并且长度不少于8位，否则会提示ERROR。</p>
-<p>##添加远程登录用户</p>
-<pre><code>grant all on *.* to weibospider@&apos;%&apos; identified by &apos;password&apos;;
+<h2 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h2><pre><code>grant all on *.* to weibospider@&apos;%&apos; identified by &apos;password&apos;;
 </code></pre><p>这里<code>*.*</code>表示所有权限，创建了一个用户名为weibospider，密码为password的用户，该用户被赋予所有权限<br>在MySQL命令行中用以下命令刷新一下：</p>
 <pre><code>flush privileges
 </code></pre><p>最后重启mysql服务使之生效：</p>
 <pre><code>systemctl restart mysqld
-</code></pre><p>##默认编码改为utf8<br>修改/etc/my.cnf配置文件如下：</p>
+</code></pre><h2 id="默认编码改为utf8"><a href="#默认编码改为utf8" class="headerlink" title="默认编码改为utf8"></a>默认编码改为utf8</h2><p>修改/etc/my.cnf配置文件如下：</p>
 <p><img src="/mysql-20171023/4.png" alt=""></p>
 <p>然后和上面一样重启mysql服务使之生效</p>
-<p>##修改mysql端口<br>mysql默认端口为3306<br>现需将mysql端口改为3000</p>
-<p>######查看3000端口是否被占用</p>
-<pre><code>netstat -anp | grep 3000
+<h2 id="修改mysql端口"><a href="#修改mysql端口" class="headerlink" title="修改mysql端口"></a>修改mysql端口</h2><p>mysql默认端口为3306<br>现需将mysql端口改为3000</p>
+<h6 id="查看3000端口是否被占用"><a href="#查看3000端口是否被占用" class="headerlink" title="查看3000端口是否被占用"></a>查看3000端口是否被占用</h6><pre><code>netstat -anp | grep 3000
 </code></pre><p>没有被占用则进行下一步，否则需kill掉占用3000端口的服务，或者换其他端口号</p>
-<p>######修改配置文件<br><img src="/mysql-20171023/5.png" alt=""></p>
-<p>######重启服务使之生效<br>此时重启出现错误，查看错误日志：</p>
+<h6 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><p><img src="/mysql-20171023/5.png" alt=""></p>
+<h6 id="重启服务使之生效"><a href="#重启服务使之生效" class="headerlink" title="重启服务使之生效"></a>重启服务使之生效</h6><p>此时重启出现错误，查看错误日志：</p>
 <pre><code>cat /var/log/mysqld.log | grep ERROR
 </code></pre><p>错误如下：</p>
 <p><img src="/mysql-20171023/6.png" alt=""></p>
@@ -291,6 +283,10 @@ systemctl daemon-reload
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -499,6 +495,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -515,15 +515,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
