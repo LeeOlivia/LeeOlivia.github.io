@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/5.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/6.png">
 <meta property="og:image" content="http://yoursite.com/mysql-20171023/7.png">
-<meta property="og:updated_time" content="2017-10-23T07:57:16.859Z">
+<meta property="og:updated_time" content="2017-10-23T12:31:48.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7.2上安装mysql及修改端口遇到的问题">
 <meta name="twitter:description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
@@ -239,6 +239,17 @@ systemctl daemon-reload
 </code></pre><p>最后重启MySQL服务即可<br>此时可在MySQL命令行中查看端口信息：</p>
 <pre><code>show variables like &apos;port&apos;;
 </code></pre><p><img src="/mysql-20171023/7.png" alt=""></p>
+<h2 id="mysql远程访问配置"><a href="#mysql远程访问配置" class="headerlink" title="mysql远程访问配置"></a>mysql远程访问配置</h2><h6 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><pre><code>vi /etc/my.cnf
+</code></pre><p>修改</p>
+<pre><code>bind-address = 127.0.0.1
+</code></pre><p>为</p>
+<pre><code>bind-address = 0.0.0.0
+</code></pre><p>这样的话，mysql才能监听远程的请求<br>然后，重启mysql服务于使之生效</p>
+<h6 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h6><p>这一步非常重要<br>刚开始我用</p>
+<pre><code>service stop iptables
+</code></pre><p>远程还是无法访问<br>最后，找到一种方法：</p>
+<pre><code>systemctl stop firewalld
+</code></pre><p>终于可以被远程访问到啦</p>
 
       
 
@@ -495,10 +506,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -512,6 +519,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
