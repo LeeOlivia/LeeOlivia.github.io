@@ -156,6 +156,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-20171023" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/23/mysql-20171023/">centos7.2上安装mysql及修改端口遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/23/mysql-20171023/" class="archive-article-date">
+  	<time datetime="2017-10-23T06:27:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##配置YUM源<br>MySQL官网：<a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">http://dev.mysql.com/downloads/repo/yum/</a><br>mysql安装包下载：</p>
+<pre><code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+</code></pre><p>安装mysql源：</p>
+<pre><code>yum install mysql57-community-release-el7-8.noarch.rpm
+</code></pre><p>检查mysql源是否安装成功：</p>
+<pre><code>yum repolist enabled | grep &quot;mysql&quot;
+</code></pre><p>出现下图所示即安装成功：<br><img src="/mysql-20171023/1.png" alt=""></p>
+<p>##安装MySQL</p>
+<pre><code>yum install mysql-community-server
+</code></pre><p>##启动MySQL服务</p>
+<pre><code>systemctl start mysqld
+</code></pre><p>或者</p>
+<pre><code>service start mysqld
+</code></pre><p>查看MySQL的启动状态<br>    systemctl status mysqld<br>出现下图所示，则成功：<br><img src="/mysql-20171023/2.png" alt=""></p>
+<p>##开机启动</p>
+<pre><code>systemctl enable mysqld
+systemctl daemon-reload
+</code></pre><p>##修改root本地登录密码<br>mysql安装完成之后，在<code>/var/log/mysqld.log</code>文件中给root生成了一个默认密码</p>
+<p>######查看默认密码</p>
+<pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log
+</code></pre><p>下图红框中即为默认密码：<br><img src="/mysql-20171023/3.png" alt=""></p>
+<p>######用默认密码登录mysql</p>
+<pre><code>mysql -u root -p
+</code></pre><p>根据提示输入上面的默认密码，进入mysql</p>
+<p>######修改root登录密码</p>
+<pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; INDENTIFIED BY &apos;password&apos;;
+</code></pre><p>或者</p>
+<pre><code>set password for &apos;root&apos;@&apos;localhost&apos;=password(&apos;password&apos;);
+</code></pre><p><strong>注意</strong>：mysql5.7默认安装了密码安全检查插件，要求密码必须包含：大小写字母、数字和特殊字符，并且长度不少于8位，否则会提示ERROR。</p>
+<p>##添加远程登录用户</p>
+<pre><code>grant all on *.* to weibospider@&apos;%&apos; identified by &apos;password&apos;;
+</code></pre><p>这里<code>*.*</code>表示所有权限，创建了一个用户名为weibospider，密码为password的用户，该用户被赋予所有权限<br>在MySQL命令行中用以下命令刷新一下：</p>
+<pre><code>flush privileges
+</code></pre><p>最后重启mysql服务使之生效：</p>
+<pre><code>systemctl restart mysqld
+</code></pre><p>##默认编码改为utf8<br>修改/etc/my.cnf配置文件如下：</p>
+<p><img src="/mysql-20171023/4.png" alt=""></p>
+<p>然后和上面一样重启mysql服务使之生效</p>
+<p>##修改mysql端口<br>mysql默认端口为3306<br>现需将mysql端口改为3000</p>
+<p>######查看3000端口是否被占用</p>
+<pre><code>netstat -anp | grep 3000
+</code></pre><p>没有被占用则进行下一步，否则需kill掉占用3000端口的服务，或者换其他端口号</p>
+<p>######修改配置文件<br><img src="/mysql-20171023/5.png" alt=""></p>
+<p>######重启服务使之生效<br>此时重启出现错误，查看错误日志：</p>
+<pre><code>cat /var/log/mysqld.log | grep ERROR
+</code></pre><p>错误如下：</p>
+<p><img src="/mysql-20171023/6.png" alt=""></p>
+<p>解决方案：</p>
+<p>1.防火墙问题</p>
+<pre><code>vi /etc/sysconfig/iptables
+</code></pre><p>添加如下行：</p>
+<pre><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 3000 -j ACCEPT
+</code></pre><p>2.SELinux问题</p>
+<p>方法一：不需要重启Linux：</p>
+<pre><code>setenforce 0
+</code></pre><p>方法二：需要重启Linux</p>
+<pre><code>vi /etc/selinux/config
+</code></pre><p>修改如下内容：</p>
+<pre><code>SELINUX=disabled
+</code></pre><p>最后重启MySQL服务即可<br>此时可在MySQL命令行中查看端口信息：</p>
+<pre><code>show variables like &apos;port&apos;;
+</code></pre><p><img src="/mysql-20171023/7.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">centos</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/23/mysql-20171023/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-essay-20171019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -436,6 +586,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
