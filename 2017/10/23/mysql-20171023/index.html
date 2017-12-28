@@ -15,18 +15,18 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/23/mysql-20171023/index.html">
 <meta property="og:site_name" content="相遇者众">
 <meta property="og:description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/1.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/2.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/3.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/4.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/5.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/6.png">
-<meta property="og:image" content="http://yoursite.com/mysql-20171023/7.png">
-<meta property="og:updated_time" content="2017-10-23T12:31:48.986Z">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/3.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/4.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/5.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/6.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/23/mysql-20171023/7.png">
+<meta property="og:updated_time" content="2017-12-28T03:17:21.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7.2上安装mysql及修改端口遇到的问题">
 <meta name="twitter:description" content="配置YUM源MySQL官网：http://dev.mysql.com/downloads/repo/yum/mysql安装包下载： wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm">
-<meta name="twitter:image" content="http://yoursite.com/mysql-20171023/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/23/mysql-20171023/1.png">
   
     <link rel="alternative" href="/atom.xml" title="相遇者众" type="application/atom+xml">
   
@@ -191,17 +191,17 @@
 <pre><code>yum install mysql57-community-release-el7-8.noarch.rpm
 </code></pre><p>检查mysql源是否安装成功：</p>
 <pre><code>yum repolist enabled | grep &quot;mysql&quot;
-</code></pre><p>出现下图所示即安装成功：<br><img src="/mysql-20171023/1.png" alt=""></p>
+</code></pre><p>出现下图所示即安装成功：<br><img src="/2017/10/23/mysql-20171023/1.png" alt=""></p>
 <h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><pre><code>yum install mysql-community-server
 </code></pre><h2 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h2><pre><code>systemctl start mysqld
 </code></pre><p>或者</p>
 <pre><code>service start mysqld
-</code></pre><p>查看MySQL的启动状态<br>    systemctl status mysqld<br>出现下图所示，则成功：<br><img src="/mysql-20171023/2.png" alt=""></p>
+</code></pre><p>查看MySQL的启动状态<br>    systemctl status mysqld<br>出现下图所示，则成功：<br><img src="/2017/10/23/mysql-20171023/2.png" alt=""></p>
 <h2 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h2><pre><code>systemctl enable mysqld
 systemctl daemon-reload
 </code></pre><h2 id="修改root本地登录密码"><a href="#修改root本地登录密码" class="headerlink" title="修改root本地登录密码"></a>修改root本地登录密码</h2><p>mysql安装完成之后，在<code>/var/log/mysqld.log</code>文件中给root生成了一个默认密码</p>
 <h6 id="查看默认密码"><a href="#查看默认密码" class="headerlink" title="查看默认密码"></a>查看默认密码</h6><pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log
-</code></pre><p>下图红框中即为默认密码：<br><img src="/mysql-20171023/3.png" alt=""></p>
+</code></pre><p>下图红框中即为默认密码：<br><img src="/2017/10/23/mysql-20171023/3.png" alt=""></p>
 <h6 id="用默认密码登录mysql"><a href="#用默认密码登录mysql" class="headerlink" title="用默认密码登录mysql"></a>用默认密码登录mysql</h6><pre><code>mysql -u root -p
 </code></pre><p>根据提示输入上面的默认密码，进入mysql</p>
 <h6 id="修改root登录密码"><a href="#修改root登录密码" class="headerlink" title="修改root登录密码"></a>修改root登录密码</h6><pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; INDENTIFIED BY &apos;password&apos;;
@@ -214,16 +214,16 @@ systemctl daemon-reload
 </code></pre><p>最后重启mysql服务使之生效：</p>
 <pre><code>systemctl restart mysqld
 </code></pre><h2 id="默认编码改为utf8"><a href="#默认编码改为utf8" class="headerlink" title="默认编码改为utf8"></a>默认编码改为utf8</h2><p>修改/etc/my.cnf配置文件如下：</p>
-<p><img src="/mysql-20171023/4.png" alt=""></p>
+<p><img src="/2017/10/23/mysql-20171023/4.png" alt=""></p>
 <p>然后和上面一样重启mysql服务使之生效</p>
 <h2 id="修改mysql端口"><a href="#修改mysql端口" class="headerlink" title="修改mysql端口"></a>修改mysql端口</h2><p>mysql默认端口为3306<br>现需将mysql端口改为3000</p>
 <h6 id="查看3000端口是否被占用"><a href="#查看3000端口是否被占用" class="headerlink" title="查看3000端口是否被占用"></a>查看3000端口是否被占用</h6><pre><code>netstat -anp | grep 3000
 </code></pre><p>没有被占用则进行下一步，否则需kill掉占用3000端口的服务，或者换其他端口号</p>
-<h6 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><p><img src="/mysql-20171023/5.png" alt=""></p>
+<h6 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><p><img src="/2017/10/23/mysql-20171023/5.png" alt=""></p>
 <h6 id="重启服务使之生效"><a href="#重启服务使之生效" class="headerlink" title="重启服务使之生效"></a>重启服务使之生效</h6><p>此时重启出现错误，查看错误日志：</p>
 <pre><code>cat /var/log/mysqld.log | grep ERROR
 </code></pre><p>错误如下：</p>
-<p><img src="/mysql-20171023/6.png" alt=""></p>
+<p><img src="/2017/10/23/mysql-20171023/6.png" alt=""></p>
 <p>解决方案：</p>
 <p>1.防火墙问题</p>
 <pre><code>vi /etc/sysconfig/iptables
@@ -238,7 +238,7 @@ systemctl daemon-reload
 <pre><code>SELINUX=disabled
 </code></pre><p>最后重启MySQL服务即可<br>此时可在MySQL命令行中查看端口信息：</p>
 <pre><code>show variables like &apos;port&apos;;
-</code></pre><p><img src="/mysql-20171023/7.png" alt=""></p>
+</code></pre><p><img src="/2017/10/23/mysql-20171023/7.png" alt=""></p>
 <h2 id="mysql远程访问配置"><a href="#mysql远程访问配置" class="headerlink" title="mysql远程访问配置"></a>mysql远程访问配置</h2><h6 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><pre><code>vi /etc/my.cnf
 </code></pre><p>修改</p>
 <pre><code>bind-address = 127.0.0.1
