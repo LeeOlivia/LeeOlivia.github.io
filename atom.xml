@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>相遇者众</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-05-06T05:02:54.043Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>相知者寡</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows环境下 Anaconda中安装tensorflow</title>
+    <link href="http://yoursite.com/2018/05/06/python-tensorflow-windows/"/>
+    <id>http://yoursite.com/2018/05/06/python-tensorflow-windows/</id>
+    <published>2018-05-06T05:01:38.000Z</published>
+    <updated>2018-05-06T05:02:54.043Z</updated>
+    
+    <content type="html"><![CDATA[<p>python功能强大，但是在安装包时经常出问题，而anaconda是一个开源的python发行版本，具有强大且方便的包管理以及环境管理的功能。近期学习tensorflow，总安装不上提示html5lib错误之类的，使用anaconda安装之后，终于将tensorflow装上了。<br>系统环境：win10 64位<br>电脑上安装了python2.7和python3.6两个版本，默认为python3.6，故安装了适合python3.6版本的tensorflow<br><a id="more"></a></p><h2 id="anaconda安装"><a href="#anaconda安装" class="headerlink" title="anaconda安装"></a>anaconda安装</h2><p>anaconda下载地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a><br>从中选择适合的版本进行下载安装<br>本文下载安装了最新版本的<br><img src="/2018/05/06/python-tensorflow-windows/1.png" alt><br>安装完成之后，在cmd中输入</p><pre><code>conda list</code></pre><p>可查看Anaconda集成了哪些环境，如图所示：<br><img src="/2018/05/06/python-tensorflow-windows/2.png" alt><br>如若显示conda不是命令，则需要手动添加环境变量<br><img src="/2018/05/06/python-tensorflow-windows/3.png" alt></p><h2 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h2><p>打开anaconda prompt终端，输入：</p><pre><code>conda create -n tensorflow python=3.6activate tensorflow</code></pre><p>之后进行tensorflw的安装</p><pre><code>pip install --ignore-installed --upgrade tensorflow</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>进入python环境，输入：</p><pre><code>import tensorflow as tf</code></pre><p>若没有问题则安装成功<br>哈哈哈哈，可以愉快的使用tensorflow啦</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python功能强大，但是在安装包时经常出问题，而anaconda是一个开源的python发行版本，具有强大且方便的包管理以及环境管理的功能。近期学习tensorflow，总安装不上提示html5lib错误之类的，使用anaconda安装之后，终于将tensorflow装上了。&lt;br&gt;系统环境：win10 64位&lt;br&gt;电脑上安装了python2.7和python3.6两个版本，默认为python3.6，故安装了适合python3.6版本的tensorflow&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+      <category term="anaconda" scheme="http://yoursite.com/tags/anaconda/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/tags/tensorflow/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="安装" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20180104元旦记事</title>
+    <link href="http://yoursite.com/2018/01/04/20180104/"/>
+    <id>http://yoursite.com/2018/01/04/20180104/</id>
+    <published>2018-01-04T06:30:31.000Z</published>
+    <updated>2018-01-04T07:26:03.828Z</updated>
+    
+    <content type="html"><![CDATA[<p>今儿武汉的天气很冷，家里也下起了白皑皑的大雪，估计武汉的初雪也不远了吧。元旦期间在北京通痛快快玩了几天，跨年那天和男票去欢乐谷嗨了一个下午加晚上，虽然冷，但是和喜欢的人一起总是温暖的。两个快奔三的人啦，去体验了下鬼屋（哈哈，慌慌张张地拉着前面那个人的书包不撒手，虽然男票不停的说有我在呢，别害怕）。真的是老啦，玩了两个旋转的项目之后，身体就扛不住啦，晕的很。之后参加了跨年的电子音乐会，哈哈哈，尖叫着和歌手握了个手，超激动。两个傻缺，晚上12点多没吃饭，跑去酒店附近的餐厅，竟然看到了同道中人，北京的夜晚格外的晚呀。跨年这天男票肚子不舒服，还是陪着我浪了一天，感恩，真是小天使一样的暖男。元旦这天，我两打算去滑雪的，结果两个傻叉上午打游戏（哈哈，主要是我鼓动的），出门已经是下午2点啦，吃过饭之后大概3点半啦，而那个滑雪的地方坐地铁得1个小时，然后还得步行几公里。我两下了地铁之后，导航找滑雪场，这时天已经渐渐黑啦，兜兜转转了好久也没找着滑雪场的入口，最后遗憾地没去滑雪场，回来的路上，我两欢快地走着，哈哈哈，时不时让男票背着走一段，美好的日子大概就是此时吧。虽然没去成滑雪场，但我两去了蓝色港湾看了美轮美奂的灯光节，附上美美的照片<br><a id="more"></a><br><img src="/2018/01/04/20180104/2.jpg" alt></p><p><img src="/2018/01/04/20180104/5.jpg" alt></p><p><img src="/2018/01/04/20180104/6.jpg" alt><br>2018希望我两一起努力，努力创造我们自己的小幸福。<br>自开完题到现在，内心一直很浮躁，出去玩了一趟之后，有小可爱的督促，我要开始好好学习啦，做一个充实的自己。和亲爱的一起努力加油！2018我们一起出发，做一个努力上进的我们！fighting！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今儿武汉的天气很冷，家里也下起了白皑皑的大雪，估计武汉的初雪也不远了吧。元旦期间在北京通痛快快玩了几天，跨年那天和男票去欢乐谷嗨了一个下午加晚上，虽然冷，但是和喜欢的人一起总是温暖的。两个快奔三的人啦，去体验了下鬼屋（哈哈，慌慌张张地拉着前面那个人的书包不撒手，虽然男票不停的说有我在呢，别害怕）。真的是老啦，玩了两个旋转的项目之后，身体就扛不住啦，晕的很。之后参加了跨年的电子音乐会，哈哈哈，尖叫着和歌手握了个手，超激动。两个傻缺，晚上12点多没吃饭，跑去酒店附近的餐厅，竟然看到了同道中人，北京的夜晚格外的晚呀。跨年这天男票肚子不舒服，还是陪着我浪了一天，感恩，真是小天使一样的暖男。元旦这天，我两打算去滑雪的，结果两个傻叉上午打游戏（哈哈，主要是我鼓动的），出门已经是下午2点啦，吃过饭之后大概3点半啦，而那个滑雪的地方坐地铁得1个小时，然后还得步行几公里。我两下了地铁之后，导航找滑雪场，这时天已经渐渐黑啦，兜兜转转了好久也没找着滑雪场的入口，最后遗憾地没去滑雪场，回来的路上，我两欢快地走着，哈哈哈，时不时让男票背着走一段，美好的日子大概就是此时吧。虽然没去成滑雪场，但我两去了蓝色港湾看了美轮美奂的灯光节，附上美美的照片&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20171023随笔</title>
+    <link href="http://yoursite.com/2017/10/23/essay-20171023/"/>
+    <id>http://yoursite.com/2017/10/23/essay-20171023/</id>
+    <published>2017-10-23T14:09:11.000Z</published>
+    <updated>2017-12-28T03:20:56.769Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2017/10/23/essay-20171023/1.png" alt></p><a id="more"></a><p>今儿在linux上折腾了好久的mysql远程访问，最后问题解决了也不枉费花费了那么多时间。晚饭时间去操场上散了会儿步，减肥计划再次宣告失败，去食堂吃了一大份的咖喱鸡排饭。回到机房继续弄了会儿爬虫，然后又去操场上走了几圈，兴许天冷的缘故，操场上并没有多少人，一边听着歌儿，一边幻想未来。我不是双鱼座，但总爱幻想，听着歌，幻想着自己也有唱歌天赋，真可笑。未来到底是什么样子的呢，我越是幻想，现实似乎越爱跟我开玩笑。渐渐的，我好像知道一切不切实际的幻想，都是要通过实际行动来一点点接近的，而不是总是将大把的光阴拿来幻想。<br>少些不切实际的幻想，多一些行动让自己羽翼足够丰满</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2017/10/23/essay-20171023/1.png&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>centos7.2上安装mysql及修改端口遇到的问题</title>
+    <link href="http://yoursite.com/2017/10/23/mysql-20171023/"/>
+    <id>http://yoursite.com/2017/10/23/mysql-20171023/</id>
+    <published>2017-10-23T06:27:58.000Z</published>
+    <updated>2017-12-28T03:17:21.868Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置YUM源"><a href="#配置YUM源" class="headerlink" title="配置YUM源"></a>配置YUM源</h2><p>MySQL官网：<a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">http://dev.mysql.com/downloads/repo/yum/</a><br>mysql安装包下载：</p><pre><code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></pre><a id="more"></a><p>安装mysql源：</p><pre><code>yum install mysql57-community-release-el7-8.noarch.rpm</code></pre><p>检查mysql源是否安装成功：</p><pre><code>yum repolist enabled | grep &quot;mysql&quot;</code></pre><p>出现下图所示即安装成功：<br><img src="/2017/10/23/mysql-20171023/1.png" alt></p><h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><pre><code>yum install mysql-community-server</code></pre><h2 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h2><pre><code>systemctl start mysqld</code></pre><p>或者</p><pre><code>service start mysqld</code></pre><p>查看MySQL的启动状态<br>    systemctl status mysqld<br>出现下图所示，则成功：<br><img src="/2017/10/23/mysql-20171023/2.png" alt></p><h2 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h2><pre><code>systemctl enable mysqldsystemctl daemon-reload</code></pre><h2 id="修改root本地登录密码"><a href="#修改root本地登录密码" class="headerlink" title="修改root本地登录密码"></a>修改root本地登录密码</h2><p>mysql安装完成之后，在<code>/var/log/mysqld.log</code>文件中给root生成了一个默认密码</p><h6 id="查看默认密码"><a href="#查看默认密码" class="headerlink" title="查看默认密码"></a>查看默认密码</h6><pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log</code></pre><p>下图红框中即为默认密码：<br><img src="/2017/10/23/mysql-20171023/3.png" alt></p><h6 id="用默认密码登录mysql"><a href="#用默认密码登录mysql" class="headerlink" title="用默认密码登录mysql"></a>用默认密码登录mysql</h6><pre><code>mysql -u root -p</code></pre><p>根据提示输入上面的默认密码，进入mysql</p><h6 id="修改root登录密码"><a href="#修改root登录密码" class="headerlink" title="修改root登录密码"></a>修改root登录密码</h6><pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; INDENTIFIED BY &apos;password&apos;;</code></pre><p>或者</p><pre><code>set password for &apos;root&apos;@&apos;localhost&apos;=password(&apos;password&apos;);</code></pre><p><strong>注意</strong>：mysql5.7默认安装了密码安全检查插件，要求密码必须包含：大小写字母、数字和特殊字符，并且长度不少于8位，否则会提示ERROR。</p><h2 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h2><pre><code>grant all on *.* to weibospider@&apos;%&apos; identified by &apos;password&apos;;</code></pre><p>这里<code>*.*</code>表示所有权限，创建了一个用户名为weibospider，密码为password的用户，该用户被赋予所有权限<br>在MySQL命令行中用以下命令刷新一下：</p><pre><code>flush privileges</code></pre><p>最后重启mysql服务使之生效：</p><pre><code>systemctl restart mysqld</code></pre><h2 id="默认编码改为utf8"><a href="#默认编码改为utf8" class="headerlink" title="默认编码改为utf8"></a>默认编码改为utf8</h2><p>修改/etc/my.cnf配置文件如下：</p><p><img src="/2017/10/23/mysql-20171023/4.png" alt></p><p>然后和上面一样重启mysql服务使之生效</p><h2 id="修改mysql端口"><a href="#修改mysql端口" class="headerlink" title="修改mysql端口"></a>修改mysql端口</h2><p>mysql默认端口为3306<br>现需将mysql端口改为3000</p><h6 id="查看3000端口是否被占用"><a href="#查看3000端口是否被占用" class="headerlink" title="查看3000端口是否被占用"></a>查看3000端口是否被占用</h6><pre><code>netstat -anp | grep 3000</code></pre><p>没有被占用则进行下一步，否则需kill掉占用3000端口的服务，或者换其他端口号</p><h6 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><p><img src="/2017/10/23/mysql-20171023/5.png" alt></p><h6 id="重启服务使之生效"><a href="#重启服务使之生效" class="headerlink" title="重启服务使之生效"></a>重启服务使之生效</h6><p>此时重启出现错误，查看错误日志：</p><pre><code>cat /var/log/mysqld.log | grep ERROR</code></pre><p>错误如下：</p><p><img src="/2017/10/23/mysql-20171023/6.png" alt></p><p>解决方案：</p><p>1.防火墙问题</p><pre><code>vi /etc/sysconfig/iptables</code></pre><p>添加如下行：</p><pre><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 3000 -j ACCEPT</code></pre><p>2.SELinux问题</p><p>方法一：不需要重启Linux：</p><pre><code>setenforce 0</code></pre><p>方法二：需要重启Linux</p><pre><code>vi /etc/selinux/config</code></pre><p>修改如下内容：</p><pre><code>SELINUX=disabled</code></pre><p>最后重启MySQL服务即可<br>此时可在MySQL命令行中查看端口信息：</p><pre><code>show variables like &apos;port&apos;;</code></pre><p><img src="/2017/10/23/mysql-20171023/7.png" alt></p><h2 id="mysql远程访问配置"><a href="#mysql远程访问配置" class="headerlink" title="mysql远程访问配置"></a>mysql远程访问配置</h2><h6 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h6><pre><code>vi /etc/my.cnf</code></pre><p>修改</p><pre><code>bind-address = 127.0.0.1</code></pre><p>为</p><pre><code>bind-address = 0.0.0.0</code></pre><p>这样的话，mysql才能监听远程的请求<br>然后，重启mysql服务于使之生效</p><h6 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h6><p>这一步非常重要<br>刚开始我用</p><pre><code>service stop iptables</code></pre><p>远程还是无法访问<br>最后，找到一种方法：</p><pre><code>systemctl stop firewalld</code></pre><p>终于可以被远程访问到啦</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;配置YUM源&quot;&gt;&lt;a href=&quot;#配置YUM源&quot; class=&quot;headerlink&quot; title=&quot;配置YUM源&quot;&gt;&lt;/a&gt;配置YUM源&lt;/h2&gt;&lt;p&gt;MySQL官网：&lt;a href=&quot;http://dev.mysql.com/downloads/repo/yum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://dev.mysql.com/downloads/repo/yum/&lt;/a&gt;&lt;br&gt;mysql安装包下载：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+      <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20171019记事</title>
+    <link href="http://yoursite.com/2017/10/19/essay-20171019/"/>
+    <id>http://yoursite.com/2017/10/19/essay-20171019/</id>
+    <published>2017-10-19T09:20:32.000Z</published>
+    <updated>2017-10-19T10:15:10.614Z</updated>
+    
+    <content type="html"><![CDATA[<p>可能是天气的缘故，心情尤为烦躁。昨晚上看了一部电影，宫崎骏的《岁月的童话》<br><img src="/2017/10/19/essay-20171019/2.jpg" alt><br><a id="more"></a><br>影片围绕着主人公妙子假期去乡下旅行开始展开，冈岛妙子，27，单身，被姐姐们催婚，仍然不愿意将就，生活在繁华的大城市，却喜欢乡下恬静的生活。她请了10天假打算去山形县旅行，一路上小学5年级的点点滴滴历历在目。第一次跟奶奶去热海游玩的场景、第一次吃菠萝全家人期待而后失望的场景、挑食而被母亲指责懂得珍惜事物、第一次被小男生喜欢时的羞涩场景、广田问是否喜欢阴天的场景、一群小女生讨论月经等等，可能人越长大越喜欢怀念小时候的事情。到了车站，她姐夫的表弟过来接她去农场，一路上相谈甚欢，俊雄给妙子说，他之前也在大城市有一份稳定工作，后来一次偶然辞职回乡下弄起了有机作物，佩服俊雄的勇气，回想起自己当初考大学时是想报园林专业的，但是大人们说的没法找的好工作，也就作罢。刚到乡下时，妙子坐了一宿火车，俊雄问她要不要休息下再去摘红花，妙子说在东京时自己是夜猫子，经常晚睡晚起，到乡下来想早睡早起。其实还挺感触的，在学校经常是12点多才睡，但是在家爸妈都是早睡早起，他们干活很累，但是却幸福知足。也不知道是最近找工作的缘故，还是觉着自己马上就要步入社会工作的恐惧感，有时候会很迷茫，不知道方向在哪里。在乡下的10天生活中，妙子像农民一样体验农活，辛苦但是乐在其中。在这个过程中她慢慢了解自己，对小时候一件“不跟你握手”的愧疚的事情也在俊雄的帮助下慢慢释怀，影片的最后妙子从开往东京的列车上下来，又重新回到山形县和俊雄相拥在一起。两个聊得来的人在一起应该是幸福的吧，妙子等了27年终于等到那个可以托付一身的人了。我想应该很多人都想和妙子一样遵循自我想法简简单单生活吧，现在的社会过于复杂，但是我终究是懦弱的吧，只能任由自己在这个纷繁的世界浮浮沉沉了，或许等到老了可以和爱的人一块儿享受田园自在生活吧。<br>现在的我有一个体贴爱护我的男票，虽然我们都有很多缺点，但是希望我们能够包容对方，好好生活。生活很难，希望我两能给予彼此支持和温暖。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;可能是天气的缘故，心情尤为烦躁。昨晚上看了一部电影，宫崎骏的《岁月的童话》&lt;br&gt;&lt;img src=&quot;/2017/10/19/essay-20171019/2.jpg&quot; alt&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo+github+yilia搭建个人博客</title>
+    <link href="http://yoursite.com/2017/10/19/hexo-github-yilia-20171019/"/>
+    <id>http://yoursite.com/2017/10/19/hexo-github-yilia-20171019/</id>
+    <published>2017-10-19T09:05:19.000Z</published>
+    <updated>2017-10-19T09:21:38.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一次写博客，希望记录下自己每天的学习内容，督促自己每天进步！</p><a id="more"></a><h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><ol><li>Node</li><li>Git</li></ol><p>这两个的安装过程就不赘述了。Hexo是基于Node的博客框架，故需安装Node，而Git作为博客的远程服务器之类的。另外你需要申请github账号，并且配置好SSH keys之类的。</p><h1 id="Hexo安装-在windows环境下"><a href="#Hexo安装-在windows环境下" class="headerlink" title="Hexo安装(在windows环境下)"></a>Hexo安装(在windows环境下)</h1><p>打开CMD，执行如下命令安装Hexo：</p><pre><code>npm install -g hexo-cli</code></pre><p>新建一个文件夹（例如：myweb），进入该文件夹下：</p><pre><code>cd D:/myweb</code></pre><p>初始化hexo，命令如下：</p><pre><code>hexo init</code></pre><p>此时博客根目录下的文件结构如图所示：<br><img src="/2017/10/19/hexo-github-yilia-20171019/222.png" alt></p><p>生成静态页面，命令如下：</p><pre><code>hexo g (或者 hexo generate)</code></pre><p>此时，博客根目录下多了一个public文件夹，这个文件夹就是生成的静态页面所在的地方</p><p>本地启动服务，进行预览(此时博客用的是默认主题landscape),命令如下：</p><pre><code>hexo s (或者 hexo server)</code></pre><p>出现如下所示：<br><img src="/2017/10/19/hexo-github-yilia-20171019/555.png" alt></p><p>则在浏览器中访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>，第一个简单博客完成</p><h1 id="hexo远程配置-github"><a href="#hexo远程配置-github" class="headerlink" title="hexo远程配置(github)"></a>hexo远程配置(github)</h1><p>在github上新建一个仓库，仓库名为:<strong>用户名.github.io</strong>.注意这里的用户名只能是你的github用户名，其他的不变，否则会出现无法访问。</p><p>注意安装扩展，命令如下：</p><pre><code>npm install hexo-deployer-git --save</code></pre><p>打开博客目录（我的是上面创建的myweb目录）下的<em>_config.yml</em>在后面加上如下内容：</p><pre><code>deploy:  type: git  repository: 复制上述仓库的地址  branch: master</code></pre><p><strong>注意</strong>冒号后面必须有一个空格</p><p>保存之后执行如下命令：</p><pre><code>hexo cleanhexo ghexo d</code></pre><p>如果出现如下图所示：<br><img src="/2017/10/19/hexo-github-yilia-20171019/111.png" alt></p><p>则恭喜你已经完成了个人博客的创建工作，访问https://用户名.github.io即可进入你的个人博客</p><h1 id="博客更新"><a href="#博客更新" class="headerlink" title="博客更新"></a>博客更新</h1><p>博客根目录下source文件夹里_posts文件下放的是主页里的博客内容，以md为后缀，每一个md文件为一篇博客。<br>新建博客的命令如下：</p><pre><code>hexo new &quot;博客名&quot;</code></pre><p>此时在_posts目录下会生成一个博客名.md文件<br>博客编辑工具推荐使用markdownpad(可在windows上使用)</p><p>写完博客之后，执行下列命令即可上传到远程端进行访问：</p><pre><code>hexo cleanhexo ghexo d</code></pre><h1 id="主题推荐及配置"><a href="#主题推荐及配置" class="headerlink" title="主题推荐及配置"></a>主题推荐及配置</h1><p>hexo更多主题查看地址为：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p><p>接下来为大家介绍的是yilia主题，简约优雅</p><h3 id="安装yilia主题"><a href="#安装yilia主题" class="headerlink" title="安装yilia主题"></a>安装yilia主题</h3><p>在git bash下输入如下命令：</p><pre><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></pre><h3 id="yilia主题启用"><a href="#yilia主题启用" class="headerlink" title="yilia主题启用"></a>yilia主题启用</h3><p>在博客根目录下，修改<em>_config.yml</em>里的<code>theme: landscape</code>修改为<code>theme: yilia</code><br>注意，下载下来的主题在博客根目录下的theme目录下。</p><h3 id="yilia主题配置"><a href="#yilia主题配置" class="headerlink" title="yilia主题配置"></a>yilia主题配置</h3><p>主要修改yilia主题下的<em>_config.yml</em>(在theme/yilia目录下)里的内容，<strong>注意冒号后必须有1个空格</strong></p><h6 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h6><p>在线头像：</p><pre><code>avatar: 头像的url地址</code></pre><p>本地头像：将本地头像放入主题下面的source文件夹(我的为：myweb/themes/yilia/source/img)下，例如该头像名为timg.jpg,则：</p><pre><code>avatar: /img/timg.jpg</code></pre><p>进行下面的配置前，需安装如下扩展：</p><pre><code>npm install hexo-generator-json-content --save</code></pre><p>若运行<code>hexo g</code>等命令时，出现下面的错误：<br><img src="/2017/10/19/hexo-github-yilia-20171019/333.png" alt><br>则在博客根目录下node_modules/hexo-generator-json-content/index.js文件头行加入<code>&quot;use strict&quot;</code></p><h6 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h6><p>在博客根目录下的<em>_config.yml</em>最后加入下列内容：</p><pre><code>jsonContent:  meta: false  pages: false  posts:  title: true  date: true  path: true  text: false  raw: false  content: false  slug: false  updated: false  comments: false  link: false  permalink: false  excerpt: false  categories: false  tags: true  </code></pre><p>在每篇博客的开始部分加入如下内容：</p><pre><code>tags:- 标签1- 标签2- 标签3- ....</code></pre><h6 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h6><p>主页，随笔页等等<br>分页配置：<br>在博客的根目录下的scaffolds/post.md中加入一行：</p><pre><code>categories: </code></pre><p>在每次写博客时，在开头进行categories的配置（和tags一样），例如：</p><pre><code>categories: 随笔</code></pre><p>然后在_config.yml中进行设置如下：</p><pre><code>随笔: /categories/随笔</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一次写博客，希望记录下自己每天的学习内容，督促自己每天进步！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="yilia" scheme="http://yoursite.com/tags/yilia/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
