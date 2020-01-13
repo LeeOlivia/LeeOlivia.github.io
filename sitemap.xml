@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/01/10/essay-20200110/</loc>
+    
+    <lastmod>2020-01-13T01:29:57.488Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/06/python-tensorflow-windows/</loc>
     
     <lastmod>2018-05-06T05:02:54.043Z</lastmod>
