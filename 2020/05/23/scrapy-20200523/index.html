@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/5.png">
-<meta property="og:updated_time" content="2020-05-23T14:25:42.757Z">
+<meta property="og:updated_time" content="2020-05-23T14:31:04.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy数据采集入门">
 <meta name="twitter:description" content="scrapy框架安装pip install Scrapy 安装完成后使用如下命令检查安装是否成功： scrapy version 版本号显示即为正常">
@@ -192,47 +192,47 @@
 <li><p>scrapy.cfg： 项目配置文件在部署时可能需要修改，其所在目录就是根目录</p>
 <h2 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h2><p> cd myfirstscrapy<br> scrapy genspider example example.com<br>命令执行后，可以看到在spiders目录下创建了一个example.py文件，其内容如下：<br><img src="/2020/05/23/scrapy-20200523/3.png" alt></p>
 <h2 id="爬取网页"><a href="#爬取网页" class="headerlink" title="爬取网页"></a>爬取网页</h2><p>创建爬虫之后，就需要根据业务目标指定要爬取的网页，这里爬取天天基金网基金信息，修改后的代码如下所示：</p>
-<p> class TuNiuSpider(scrapy.Spider):</p>
+<p> `class TuNiuSpider(scrapy.Spider):</p>
 <pre><code>name = &apos;tiantianjijinspider&apos;
 allowed_domains = [&apos;fund.eastmoney.com&apos;]
 url = &quot;&quot;&quot;https://fund.eastmoney.com/000001.html&quot;&quot;&quot;
 start_urls = [url]
 
 def parse(self, response):
-    print(response)
+    print(response)`
 </code></pre><h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>通过parse方法，参数response.text可以获取网页上的内容</p>
 <h5 id="1-创建实体"><a href="#1-创建实体" class="headerlink" title="1. 创建实体"></a>1. 创建实体</h5><p>实体定义了提取的目标数据对象。例如，本示例希望获取页面上的“基金类型”、“基金规模”等相关数据，在items.py文件中定义该类，实体类定义如下：</p>
-<p> class FundItem(scrapy.Item):</p>
-<pre><code># define the fields for your item here like:
-# name = scrapy.Field()
-type = scrapy.Field()
-scope = scrapy.Field()
-agent = scrapy.Field()
-FoundDay = scrapy.Field()
-admin = scrapy.Field()
-score = scrapy.Field()
-</code></pre><h5 id="2-提取数据"><a href="#2-提取数据" class="headerlink" title="2. 提取数据"></a>2. 提取数据</h5><p>在example.py文件中，定义网页解析函数提取数据，如下所示：</p>
-<pre><code>def parse(self, response):
-    soup = BeautifulSoup(response.text, &apos;lxml&apos;)
-    fund_info = soup.select(&apos;div.fundDetail-main &gt; div.fundInfoItem &gt; &apos;
-                        &apos;div.infoOfFund &gt; table &gt; tr&apos;)
-    item = FundItem()
-    rows = []
-    for row in fund_info[0:2]:
-        for col in row:
-            info = col.text.replace(&apos;\xa0\xa0&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;).split(&apos;：&apos;)
-            if len(info) == 2:
-                rows.append(info[1])
-    item[&quot;type&quot;] = rows[0]
-    item[&quot;scope&quot;] = rows[1]
-    item[&quot;agent&quot;] = rows[2]
-    item[&quot;FoundDay&quot;] = rows[3]
-    item[&quot;admin&quot;] = rows[4]
-    item[&quot;score&quot;] = rows[5]
-    print(item)
-</code></pre></li>
+</li>
 </ol>
-<p><em>注意：在example.py文件中需要引入上一步定义的实体类，即 <code>from myfirstscrapy.items import FundItem</code> ，其中myfirstscrapy是创建项目时的项目名</em></p>
+<pre><code>`class FundItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    type = scrapy.Field()
+    scope = scrapy.Field()
+    agent = scrapy.Field()
+    FoundDay = scrapy.Field()
+    admin = scrapy.Field()
+    score = scrapy.Field()`
+</code></pre><h5 id="2-提取数据"><a href="#2-提取数据" class="headerlink" title="2. 提取数据"></a>2. 提取数据</h5><p>在example.py文件中，定义网页解析函数提取数据，如下所示：</p>
+<pre><code>` def parse(self, response):
+     soup = BeautifulSoup(response.text, &apos;lxml&apos;)
+     fund_info = soup.select(&apos;div.fundDetail-main &gt; div.fundInfoItem &gt; &apos;
+                         &apos;div.infoOfFund &gt; table &gt; tr&apos;)
+     item = FundItem()
+     rows = []
+     for row in fund_info[0:2]:
+         for col in row:
+             info = col.text.replace(&apos;\xa0\xa0&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;).split(&apos;：&apos;)
+             if len(info) == 2:
+                 rows.append(info[1])
+     item[&quot;type&quot;] = rows[0]
+     item[&quot;scope&quot;] = rows[1]
+     item[&quot;agent&quot;] = rows[2]
+     item[&quot;FoundDay&quot;] = rows[3]
+     item[&quot;admin&quot;] = rows[4]
+     item[&quot;score&quot;] = rows[5]
+     print(item)`
+</code></pre><p><em>注意：在example.py文件中需要引入上一步定义的实体类，即 <code>from myfirstscrapy.items import FundItem</code> ，其中myfirstscrapy是创建项目时的项目名</em></p>
 <p>打开cmd,在项目根目录下执行如下命令：</p>
 <pre><code>scrapy crawl tiantianjijinspider
 </code></pre><p><em>注意：<code>tiantianjijinspider</code> 为在example.py中创建的爬虫类的name</em></p>
