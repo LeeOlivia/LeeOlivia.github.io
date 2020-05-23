@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-23T14:32:42.593Z</updated>
+  <updated>2020-05-23T14:49:46.604Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>scrapy1_20200523</title>
+    <title>scrapy常用命令</title>
     <link href="http://yoursite.com/2020/05/23/scrapy1-20200523/"/>
     <id>http://yoursite.com/2020/05/23/scrapy1-20200523/</id>
     <published>2020-05-23T14:32:42.000Z</published>
-    <updated>2020-05-23T14:32:42.593Z</updated>
+    <updated>2020-05-23T14:49:46.604Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><pre><code>scrapy startproject projectname</code></pre><p>其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录</p><h2 id="2-创建爬虫"><a href="#2-创建爬虫" class="headerlink" title="2.创建爬虫"></a>2.创建爬虫</h2><p>创建完项目后，切换到projectname目录，使用如下命令创建爬虫</p><pre><code>scrapy genspider example example.com</code></pre><p>其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫类：</p><pre><code>class ExampleSpider(scrapy.Spider):    name = &quot;example&quot;    allowed_domains = [&quot;example.com&quot;]    start_urls = [&quot;http://www.example.com/&quot;]</code></pre><h2 id="3-启动爬虫"><a href="#3-启动爬虫" class="headerlink" title="3.启动爬虫"></a>3.启动爬虫</h2><p>使用如下命令启动爬虫：</p><pre><code>scrapy crawl example</code></pre><h2 id="4-检查XPath"><a href="#4-检查XPath" class="headerlink" title="4.检查XPath"></a>4.检查XPath</h2><pre><code>scrapy shell https://www.meijutt.com/</code></pre><p>该命令会启动一个shell</p><h2 id="5-查看爬虫列表"><a href="#5-查看爬虫列表" class="headerlink" title="5.查看爬虫列表"></a>5.查看爬虫列表</h2><h2 id="6-查看爬虫视图"><a href="#6-查看爬虫视图" class="headerlink" title="6.查看爬虫视图"></a>6.查看爬虫视图</h2>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-创建项目&quot;&gt;&lt;a href=&quot;#1-创建项目&quot; class=&quot;headerlink&quot; title=&quot;1.创建项目&quot;&gt;&lt;/a&gt;1.创建项目&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;scrapy startproject projectname
+&lt;/code&gt;&lt;/pre&gt;&lt;
+      
     
     </summary>
     
     
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="scrapy2.1.0" scheme="http://yoursite.com/tags/scrapy2-1-0/"/>
+    
+      <category term="python3.7" scheme="http://yoursite.com/tags/python3-7/"/>
     
   </entry>
   
