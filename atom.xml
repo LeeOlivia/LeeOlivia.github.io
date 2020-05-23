@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-16T08:46:58.592Z</updated>
+  <updated>2020-05-23T14:25:42.757Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scrapy数据采集入门</title>
+    <link href="http://yoursite.com/2020/05/23/scrapy-20200523/"/>
+    <id>http://yoursite.com/2020/05/23/scrapy-20200523/</id>
+    <published>2020-05-23T07:59:53.000Z</published>
+    <updated>2020-05-23T14:25:42.757Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="scrapy框架安装"><a href="#scrapy框架安装" class="headerlink" title="scrapy框架安装"></a>scrapy框架安装</h2><pre><code>pip install Scrapy</code></pre><p>安装完成后使用如下命令检查安装是否成功：</p><pre><code>scrapy version</code></pre><p>版本号显示即为正常<br><a id="more"></a></p><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>新建一个空白目录，打开命令行，使用如下命令创建项目：</p><pre><code>scrapy startproject myfirstscrapy</code></pre><p>执行结果如下图所示：<br><img src="/2020/05/23/scrapy-20200523/1.png" alt></p><p>下图为Scrapy项目结构：</p><p><img src="/2020/05/23/scrapy-20200523/2.png" alt></p><ol><li>spiders: 用来存放具体的爬虫代码</li><li>items.py： 存放实体类文件，实体类需要从scrapy.Item继承，用来表示爬虫提取到的数据</li><li>middlewares.py： 用来处理Scrapy引擎和各组件间的请求和响应</li><li>piplines.py： 用来处理爬虫传递过来的实体</li><li>settings.py： 框架配置文件</li><li><p>scrapy.cfg： 项目配置文件在部署时可能需要修改，其所在目录就是根目录</p><h2 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h2><p> cd myfirstscrapy<br> scrapy genspider example example.com<br>命令执行后，可以看到在spiders目录下创建了一个example.py文件，其内容如下：<br><img src="/2020/05/23/scrapy-20200523/3.png" alt></p><h2 id="爬取网页"><a href="#爬取网页" class="headerlink" title="爬取网页"></a>爬取网页</h2><p>创建爬虫之后，就需要根据业务目标指定要爬取的网页，这里爬取天天基金网基金信息，修改后的代码如下所示：</p><p> class TuNiuSpider(scrapy.Spider):</p><pre><code>name = &apos;tiantianjijinspider&apos;allowed_domains = [&apos;fund.eastmoney.com&apos;]url = &quot;&quot;&quot;https://fund.eastmoney.com/000001.html&quot;&quot;&quot;start_urls = [url]def parse(self, response):    print(response)</code></pre><h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>通过parse方法，参数response.text可以获取网页上的内容</p><h5 id="1-创建实体"><a href="#1-创建实体" class="headerlink" title="1. 创建实体"></a>1. 创建实体</h5><p>实体定义了提取的目标数据对象。例如，本示例希望获取页面上的“基金类型”、“基金规模”等相关数据，在items.py文件中定义该类，实体类定义如下：</p><p> class FundItem(scrapy.Item):</p><pre><code># define the fields for your item here like:# name = scrapy.Field()type = scrapy.Field()scope = scrapy.Field()agent = scrapy.Field()FoundDay = scrapy.Field()admin = scrapy.Field()score = scrapy.Field()</code></pre><h5 id="2-提取数据"><a href="#2-提取数据" class="headerlink" title="2. 提取数据"></a>2. 提取数据</h5><p>在example.py文件中，定义网页解析函数提取数据，如下所示：</p><pre><code>def parse(self, response):    soup = BeautifulSoup(response.text, &apos;lxml&apos;)    fund_info = soup.select(&apos;div.fundDetail-main &gt; div.fundInfoItem &gt; &apos;                        &apos;div.infoOfFund &gt; table &gt; tr&apos;)    item = FundItem()    rows = []    for row in fund_info[0:2]:        for col in row:            info = col.text.replace(&apos;\xa0\xa0&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;).split(&apos;：&apos;)            if len(info) == 2:                rows.append(info[1])    item[&quot;type&quot;] = rows[0]    item[&quot;scope&quot;] = rows[1]    item[&quot;agent&quot;] = rows[2]    item[&quot;FoundDay&quot;] = rows[3]    item[&quot;admin&quot;] = rows[4]    item[&quot;score&quot;] = rows[5]    print(item)</code></pre></li></ol><p><em>注意：在example.py文件中需要引入上一步定义的实体类，即 <code>from myfirstscrapy.items import FundItem</code> ，其中myfirstscrapy是创建项目时的项目名</em></p><p>打开cmd,在项目根目录下执行如下命令：</p><pre><code>scrapy crawl tiantianjijinspider</code></pre><p><em>注意：<code>tiantianjijinspider</code> 为在example.py中创建的爬虫类的name</em></p><p>执行后的结果如下图所示，显示爬取到的数据：<br><img src="/2020/05/23/scrapy-20200523/4.png" alt></p><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>1、在存储数据之前，需要在settings.py文件中启用实体管道，如下所示：</p><pre><code>ITEM_PIPELINES = {&apos;myfirstscrapy.pipelines.MyfirstscrapyPipeline&apos;: 300,}</code></pre><p>其中，<code>myfirstscrapy.pipelines.MyfirstscrapyPipeline</code> 表示处理实体的管道类的全路径，对应值300表示管道运行优先级，该数值范围在0-1000，数值越小，优先级越高。这里可以配置多个管道。</p><p>2、修改parse代码，将实体传递到管道，如下所示：</p><pre><code>def parse(self, response):    soup = BeautifulSoup(response.text, &apos;lxml&apos;)    fund_info = soup.select(&apos;div.fundDetail-main &gt; div.fundInfoItem &gt; &apos;                            &apos;div.infoOfFund &gt; table &gt; tr&apos;)    item = FundItem()    rows = []    for row in fund_info[0:2]:        for col in row:            info = col.text.replace(&apos;\xa0\xa0&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;).split(&apos;：&apos;)            if len(info) == 2:                rows.append(info[1])    item[&quot;type&quot;] = rows[0]    item[&quot;scope&quot;] = rows[1]    item[&quot;agent&quot;] = rows[2]    item[&quot;FoundDay&quot;] = rows[3]    item[&quot;admin&quot;] = rows[4]    item[&quot;score&quot;] = rows[5]    return item</code></pre><p>3、在pipelines.py文件中添加处理实体的逻辑，这里将实体保存为txt文件</p><pre><code>class MyfirstscrapyPipeline:def process_item(self, item, spider):    with open(&quot;product.txt&quot;,&quot;a&quot;, encoding=&quot;utf-8&quot;) as file:        content = &quot;基金类型:{0} ,基金规模:{1} ,基金经理:{2} ,成立日:{3} ,管理人:{4} ,基金评级:{5} &quot;\            .format(item[&quot;type&quot;], item[&quot;scope&quot;], item[&quot;agent&quot;], item[&quot;FoundDay&quot;], item[&quot;admin&quot;], item[&quot;score&quot;])        file.write(content)</code></pre><p>打开cmd,在项目根目录下执行如下命令：</p><pre><code>scrapy crawl tiantianjijinspider</code></pre><p>在项目根目录下，会自动创建一个名为“product.txt”的新文件，内容如下图所示：<br><img src="/2020/05/23/scrapy-20200523/5.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;scrapy框架安装&quot;&gt;&lt;a href=&quot;#scrapy框架安装&quot; class=&quot;headerlink&quot; title=&quot;scrapy框架安装&quot;&gt;&lt;/a&gt;scrapy框架安装&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;pip install Scrapy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装完成后使用如下命令检查安装是否成功：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;scrapy version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;版本号显示即为正常&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="scrapy2.1.0" scheme="http://yoursite.com/tags/scrapy2-1-0/"/>
+    
+      <category term="python3.7" scheme="http://yoursite.com/tags/python3-7/"/>
+    
+      <category term="windows10" scheme="http://yoursite.com/tags/windows10/"/>
+    
+  </entry>
   
   <entry>
     <title>20200110记事</title>
