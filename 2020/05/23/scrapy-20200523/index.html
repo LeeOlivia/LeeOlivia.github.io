@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy-20200523/5.png">
-<meta property="og:updated_time" content="2020-05-23T14:31:04.291Z">
+<meta property="og:updated_time" content="2020-05-23T14:36:39.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy数据采集入门">
 <meta name="twitter:description" content="scrapy框架安装pip install Scrapy 安装完成后使用如下命令检查安装是否成功： scrapy version 版本号显示即为正常">
@@ -189,21 +189,21 @@
 <li>middlewares.py： 用来处理Scrapy引擎和各组件间的请求和响应</li>
 <li>piplines.py： 用来处理爬虫传递过来的实体</li>
 <li>settings.py： 框架配置文件</li>
-<li><p>scrapy.cfg： 项目配置文件在部署时可能需要修改，其所在目录就是根目录</p>
-<h2 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h2><p> cd myfirstscrapy<br> scrapy genspider example example.com<br>命令执行后，可以看到在spiders目录下创建了一个example.py文件，其内容如下：<br><img src="/2020/05/23/scrapy-20200523/3.png" alt></p>
+<li>scrapy.cfg： 项目配置文件在部署时可能需要修改，其所在目录就是根目录</li>
+</ol>
+<h2 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h2><pre><code>cd myfirstscrapy
+scrapy genspider example example.com
+</code></pre><p>命令执行后，可以看到在spiders目录下创建了一个example.py文件，其内容如下：<br><img src="/2020/05/23/scrapy-20200523/3.png" alt></p>
 <h2 id="爬取网页"><a href="#爬取网页" class="headerlink" title="爬取网页"></a>爬取网页</h2><p>创建爬虫之后，就需要根据业务目标指定要爬取的网页，这里爬取天天基金网基金信息，修改后的代码如下所示：</p>
-<p> `class TuNiuSpider(scrapy.Spider):</p>
-<pre><code>name = &apos;tiantianjijinspider&apos;
-allowed_domains = [&apos;fund.eastmoney.com&apos;]
-url = &quot;&quot;&quot;https://fund.eastmoney.com/000001.html&quot;&quot;&quot;
-start_urls = [url]
-
-def parse(self, response):
-    print(response)`
+<pre><code>class TuNiuSpider(scrapy.Spider):
+    name = &apos;tiantianjijinspider&apos;
+    allowed_domains = [&apos;fund.eastmoney.com&apos;]
+    url = &quot;&quot;&quot;https://fund.eastmoney.com/000001.html&quot;&quot;&quot;
+    start_urls = [url]
+    def parse(self, response):
+        print(response)
 </code></pre><h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>通过parse方法，参数response.text可以获取网页上的内容</p>
 <h5 id="1-创建实体"><a href="#1-创建实体" class="headerlink" title="1. 创建实体"></a>1. 创建实体</h5><p>实体定义了提取的目标数据对象。例如，本示例希望获取页面上的“基金类型”、“基金规模”等相关数据，在items.py文件中定义该类，实体类定义如下：</p>
-</li>
-</ol>
 <pre><code>`class FundItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
@@ -397,6 +397,15 @@ def process_item(self, item, spider):
   
 <nav id="article-nav">
   
+    <a href="/2020/05/23/scrapy1-20200523/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          scrapy1_20200523
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/01/10/essay-20200110/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">20200110记事</div>
@@ -529,22 +538,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -574,6 +567,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
