@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>scrapy常用命令 | 相遇者众</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com 其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫">
+  <meta name="description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com">
 <meta name="keywords" content="scrapy2.1.0,python3.7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrapy常用命令">
 <meta property="og:url" content="http://yoursite.com/2020/05/23/scrapy1-20200523/index.html">
 <meta property="og:site_name" content="相遇者众">
-<meta property="og:description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com 其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫">
+<meta property="og:description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-23T14:49:46.604Z">
+<meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy1-20200523/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/23/scrapy1-20200523/2.png">
+<meta property="og:updated_time" content="2020-05-24T13:45:03.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy常用命令">
-<meta name="twitter:description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com 其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫">
+<meta name="twitter:description" content="1.创建项目scrapy startproject projectname 其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录 2.创建爬虫创建完项目后，切换到projectname目录，使用如下命令创建爬虫 scrapy genspider example example.com">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/23/scrapy1-20200523/1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -172,7 +175,8 @@
 </code></pre><p>其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录</p>
 <h2 id="2-创建爬虫"><a href="#2-创建爬虫" class="headerlink" title="2.创建爬虫"></a>2.创建爬虫</h2><p>创建完项目后，切换到projectname目录，使用如下命令创建爬虫</p>
 <pre><code>scrapy genspider example example.com
-</code></pre><p>其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫类：</p>
+</code></pre><a id="more"></a>
+<p>其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫类：</p>
 <pre><code>class ExampleSpider(scrapy.Spider):
     name = &quot;example&quot;
     allowed_domains = [&quot;example.com&quot;]
@@ -180,8 +184,15 @@
 </code></pre><h2 id="3-启动爬虫"><a href="#3-启动爬虫" class="headerlink" title="3.启动爬虫"></a>3.启动爬虫</h2><p>使用如下命令启动爬虫：</p>
 <pre><code>scrapy crawl example
 </code></pre><h2 id="4-检查XPath"><a href="#4-检查XPath" class="headerlink" title="4.检查XPath"></a>4.检查XPath</h2><pre><code>scrapy shell https://www.meijutt.com/
-</code></pre><p>该命令会启动一个shell</p>
-<h2 id="5-查看爬虫列表"><a href="#5-查看爬虫列表" class="headerlink" title="5.查看爬虫列表"></a>5.查看爬虫列表</h2><h2 id="6-查看爬虫视图"><a href="#6-查看爬虫视图" class="headerlink" title="6.查看爬虫视图"></a>6.查看爬虫视图</h2>
+</code></pre><p>该命令会启动一个shell，同时Scrapy会自动下载该网站首页。在shell窗口中，Scrapy会创建好几个常用对象，如下图所示：<br><img src="/2020/05/23/scrapy1-20200523/1.png" alt><br>该shell工具常用于检查XPath语法，其命令如下：</p>
+<pre><code>response.xpath(&quot;//div[@class=&apos;l week-hot layout-box&apos;]/ul/li&quot;)
+</code></pre><h2 id="5-查看爬虫列表"><a href="#5-查看爬虫列表" class="headerlink" title="5.查看爬虫列表"></a>5.查看爬虫列表</h2><p>使用如下命令，可以查看爬虫列表：</p>
+<pre><code>scrapy list
+</code></pre><p>执行结果如下图所示，显示项目中爬虫名称：</p>
+<p><img src="/2020/05/23/scrapy1-20200523/2.png" alt></p>
+<h2 id="6-查看爬虫视图"><a href="#6-查看爬虫视图" class="headerlink" title="6.查看爬虫视图"></a>6.查看爬虫视图</h2><p>scrapy view命令可以调用浏览器打开目标站点。用户通过视图命令，查看Scrapy下载的网页和目标网页是否一致。</p>
+<pre><code>scrapy view &quot;https://fund.eastmoney.com/000001.html&quot;
+</code></pre>
       
 
       
@@ -465,18 +476,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">scrapy2.1.0</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">python3.7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">windows10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
@@ -494,6 +493,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">scrapy2.1.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">python3.7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">windows10</a>
               </li>
             
             <div class="clearfix"></div>

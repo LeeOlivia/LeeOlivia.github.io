@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-23T14:49:46.604Z</updated>
+  <updated>2020-05-24T13:45:03.493Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://yoursite.com/2020/05/23/scrapy1-20200523/"/>
     <id>http://yoursite.com/2020/05/23/scrapy1-20200523/</id>
     <published>2020-05-23T14:32:42.000Z</published>
-    <updated>2020-05-23T14:49:46.604Z</updated>
+    <updated>2020-05-24T13:45:03.493Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><pre><code>scrapy startproject projectname</code></pre><p>其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录</p><h2 id="2-创建爬虫"><a href="#2-创建爬虫" class="headerlink" title="2.创建爬虫"></a>2.创建爬虫</h2><p>创建完项目后，切换到projectname目录，使用如下命令创建爬虫</p><pre><code>scrapy genspider example example.com</code></pre><p>其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫类：</p><pre><code>class ExampleSpider(scrapy.Spider):    name = &quot;example&quot;    allowed_domains = [&quot;example.com&quot;]    start_urls = [&quot;http://www.example.com/&quot;]</code></pre><h2 id="3-启动爬虫"><a href="#3-启动爬虫" class="headerlink" title="3.启动爬虫"></a>3.启动爬虫</h2><p>使用如下命令启动爬虫：</p><pre><code>scrapy crawl example</code></pre><h2 id="4-检查XPath"><a href="#4-检查XPath" class="headerlink" title="4.检查XPath"></a>4.检查XPath</h2><pre><code>scrapy shell https://www.meijutt.com/</code></pre><p>该命令会启动一个shell</p><h2 id="5-查看爬虫列表"><a href="#5-查看爬虫列表" class="headerlink" title="5.查看爬虫列表"></a>5.查看爬虫列表</h2><h2 id="6-查看爬虫视图"><a href="#6-查看爬虫视图" class="headerlink" title="6.查看爬虫视图"></a>6.查看爬虫视图</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><pre><code>scrapy startproject projectname</code></pre><p>其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录</p><h2 id="2-创建爬虫"><a href="#2-创建爬虫" class="headerlink" title="2.创建爬虫"></a>2.创建爬虫</h2><p>创建完项目后，切换到projectname目录，使用如下命令创建爬虫</p><pre><code>scrapy genspider example example.com</code></pre><a id="more"></a><p>其中example表示爬虫名称，example.com是待爬取的网站，对应爬虫类：</p><pre><code>class ExampleSpider(scrapy.Spider):    name = &quot;example&quot;    allowed_domains = [&quot;example.com&quot;]    start_urls = [&quot;http://www.example.com/&quot;]</code></pre><h2 id="3-启动爬虫"><a href="#3-启动爬虫" class="headerlink" title="3.启动爬虫"></a>3.启动爬虫</h2><p>使用如下命令启动爬虫：</p><pre><code>scrapy crawl example</code></pre><h2 id="4-检查XPath"><a href="#4-检查XPath" class="headerlink" title="4.检查XPath"></a>4.检查XPath</h2><pre><code>scrapy shell https://www.meijutt.com/</code></pre><p>该命令会启动一个shell，同时Scrapy会自动下载该网站首页。在shell窗口中，Scrapy会创建好几个常用对象，如下图所示：<br><img src="/2020/05/23/scrapy1-20200523/1.png" alt><br>该shell工具常用于检查XPath语法，其命令如下：</p><pre><code>response.xpath(&quot;//div[@class=&apos;l week-hot layout-box&apos;]/ul/li&quot;)</code></pre><h2 id="5-查看爬虫列表"><a href="#5-查看爬虫列表" class="headerlink" title="5.查看爬虫列表"></a>5.查看爬虫列表</h2><p>使用如下命令，可以查看爬虫列表：</p><pre><code>scrapy list</code></pre><p>执行结果如下图所示，显示项目中爬虫名称：</p><p><img src="/2020/05/23/scrapy1-20200523/2.png" alt></p><h2 id="6-查看爬虫视图"><a href="#6-查看爬虫视图" class="headerlink" title="6.查看爬虫视图"></a>6.查看爬虫视图</h2><p>scrapy view命令可以调用浏览器打开目标站点。用户通过视图命令，查看Scrapy下载的网页和目标网页是否一致。</p><pre><code>scrapy view &quot;https://fund.eastmoney.com/000001.html&quot;</code></pre>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;1-创建项目&quot;&gt;&lt;a href=&quot;#1-创建项目&quot; class=&quot;headerlink&quot; title=&quot;1.创建项目&quot;&gt;&lt;/a&gt;1.创建项目&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;scrapy startproject projectname
-&lt;/code&gt;&lt;/pre&gt;&lt;
-      
+      &lt;h2 id=&quot;1-创建项目&quot;&gt;&lt;a href=&quot;#1-创建项目&quot; class=&quot;headerlink&quot; title=&quot;1.创建项目&quot;&gt;&lt;/a&gt;1.创建项目&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;scrapy startproject projectname
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中，projectname是项目名称，该目录包含scrapy.cfg文件，是项目根目录&lt;/p&gt;
+&lt;h2 id=&quot;2-创建爬虫&quot;&gt;&lt;a href=&quot;#2-创建爬虫&quot; class=&quot;headerlink&quot; title=&quot;2.创建爬虫&quot;&gt;&lt;/a&gt;2.创建爬虫&lt;/h2&gt;&lt;p&gt;创建完项目后，切换到projectname目录，使用如下命令创建爬虫&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;scrapy genspider example example.com
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
