@@ -148,6 +148,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scrapy3-20200526" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/26/scrapy3-20200526/">CrawlSpier类</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/26/scrapy3-20200526/" class="archive-article-date">
+  	<time datetime="2020-05-26T14:05:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大多数网站的网页链接在命名上都有一定的规则，使用CrawlSpider类可以根据这些规则实现全站爬取。</p>
+<h4 id="1、创建CrawlSpider"><a href="#1、创建CrawlSpider" class="headerlink" title="1、创建CrawlSpider"></a>1、创建CrawlSpider</h4><p>CrawlSpider是Spider的子类，Spider爬取的是start_urls指定的链接，而CrawlSpider则是根据一定的规则在start_urls的基础上进一步爬取页面内部链接。创建CrawlSpider爬虫的命令格式如下：</p>
+<pre><code>scrapy genspider -t crawl 51Job search.51job.com
+</code></pre><p>其中，<code>“51Job”</code>为爬虫名，<code>“search.51job.com”</code>是爬虫开始爬取的页面。</p>
+<p>执行命令之后，在spider目录下生成a51job.py文件，其内容如下所示：<br></p>
+        
+          <a class="article-more-a" href="/2020/05/26/scrapy3-20200526/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">scrapy2.1.0</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python3.7</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/scrapy3-20200526/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-scrapy2-20200524" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,7 +264,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="发爬虫简介"><a href="#发爬虫简介" class="headerlink" title="发爬虫简介"></a>发爬虫简介</h2><p>反爬虫程序一般基于以下几点来判断当前请求是否由一个爬虫程序发起。</p>
-<h6 id="1-Headers"><a href="#1-Headers" class="headerlink" title="1.Headers"></a>1.Headers</h6><p>如图所示，发爬虫程序一般会检查请求Headers信息的User-Agent是否为真实浏览器的。因此在爬虫中设置User-Agent的内容，可以绕过简单的反爬虫程序。<br></p>
+<h4 id="1-Headers"><a href="#1-Headers" class="headerlink" title="1.Headers"></a>1.Headers</h4><p>如图所示，发爬虫程序一般会检查请求Headers信息的User-Agent是否为真实浏览器的。因此在爬虫中设置User-Agent的内容，可以绕过简单的反爬虫程序。<br></p>
         
           <a class="article-more-a" href="/2020/05/24/scrapy2-20200524/#more">more >></a>
         
@@ -971,105 +1066,10 @@
 
 
   
-    <article id="post-hexo-github-yilia-20171019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/19/hexo-github-yilia-20171019/">hexo+github+yilia搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/19/hexo-github-yilia-20171019/" class="archive-article-date">
-  	<time datetime="2017-10-19T09:05:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一次写博客，希望记录下自己每天的学习内容，督促自己每天进步！</p>
-        
-          <a class="article-more-a" href="/2017/10/19/hexo-github-yilia-20171019/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/19/hexo-github-yilia-20171019/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1167,18 +1167,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -1224,6 +1212,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">windows10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
