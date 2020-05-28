@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-27T14:45:30.423Z</updated>
+  <updated>2020-05-28T14:39:01.906Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>scrapy之分布式爬虫</title>
+    <link href="http://yoursite.com/2020/05/28/scrapy4-20200528/"/>
+    <id>http://yoursite.com/2020/05/28/scrapy4-20200528/</id>
+    <published>2020-05-28T14:07:49.000Z</published>
+    <updated>2020-05-28T14:39:01.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>##1、安装redis<br>redis官方并不支持Windows，但是可以从github上下载到Windows版本。下载地址为：<a href="https://github.com/microsoftarchive/redis/releases" target="_blank" rel="noopener">https://github.com/microsoftarchive/redis/releases</a><br><a id="more"></a></p><h4 id="1）启动redis服务"><a href="#1）启动redis服务" class="headerlink" title="1）启动redis服务"></a>1）启动redis服务</h4><p>安装包解压后的目录如下所示：</p><p><img src="/2020/05/28/scrapy4-20200528/1.png" alt></p><p>进入安装目录后，执行下列命令可直接启动：</p><pre><code>redis-server.exe redis.windows.conf</code></pre><p>启动状态如下图所示：</p><p><img src="/2020/05/28/scrapy4-20200528/2.png" alt></p><h4 id="2）启动客户端"><a href="#2）启动客户端" class="headerlink" title="2）启动客户端"></a>2）启动客户端</h4><pre><code>redis-cli.exe</code></pre><p>执行结果如下所示：</p><p><img src="/2020/05/28/scrapy4-20200528/3.png" alt></p><h4 id="3）输入测试命令"><a href="#3）输入测试命令" class="headerlink" title="3）输入测试命令"></a>3）输入测试命令</h4><p><img src="/2020/05/28/scrapy4-20200528/4.png" alt></p><p><strong>注意：这种模式下，当redis-server.exe窗口退出后，redis将不能再使用。可使用如下命令将redis安装成windows服务</strong></p><pre><code>redis-server --service-install redis.windows.conf --loglevel verbose</code></pre><h4 id="4）启动服务命令"><a href="#4）启动服务命令" class="headerlink" title="4）启动服务命令"></a>4）启动服务命令</h4><p>启动服务命令：</p><pre><code>redis-server --service-start</code></pre><p>停止服务命令：</p><pre><code>redis-server --service-stop</code></pre><p>##2、配置scrapy_redis</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##1、安装redis&lt;br&gt;redis官方并不支持Windows，但是可以从github上下载到Windows版本。下载地址为：&lt;a href=&quot;https://github.com/microsoftarchive/redis/releases&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/microsoftarchive/redis/releases&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="scrapy2.1.0" scheme="http://yoursite.com/tags/scrapy2-1-0/"/>
+    
+      <category term="python3.7" scheme="http://yoursite.com/tags/python3-7/"/>
+    
+      <category term="windows10" scheme="http://yoursite.com/tags/windows10/"/>
+    
+      <category term="redis3.2.100" scheme="http://yoursite.com/tags/redis3-2-100/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CrawlSpier类</title>
     <link href="http://yoursite.com/2020/05/26/scrapy3-20200526/"/>
     <id>http://yoursite.com/2020/05/26/scrapy3-20200526/</id>
     <published>2020-05-26T14:05:36.000Z</published>
-    <updated>2020-05-27T14:45:30.423Z</updated>
+    <updated>2020-05-28T14:06:45.520Z</updated>
     
-    <content type="html"><![CDATA[<p>大多数网站的网页链接在命名上都有一定的规则，使用CrawlSpider类可以根据这些规则实现全站爬取。</p><h4 id="1、创建CrawlSpider"><a href="#1、创建CrawlSpider" class="headerlink" title="1、创建CrawlSpider"></a>1、创建CrawlSpider</h4><p>CrawlSpider是Spider的子类，Spider爬取的是start_urls指定的链接，而CrawlSpider则是根据一定的规则在start_urls的基础上进一步爬取页面内部链接。创建CrawlSpider爬虫的命令格式如下：</p><pre><code>scrapy genspider -t crawl 51Job search.51job.com</code></pre><p>其中，<code>“51Job”</code>为爬虫名，<code>“search.51job.com”</code>是爬虫开始爬取的页面。</p><p>执行命令之后，在spider目录下生成a51job.py文件，其内容如下所示：<br><a id="more"></a><br><img src="/2020/05/26/scrapy3-20200526/1.png" alt></p><p>CrawlSpider的规则是一系列Rule对象的元组。Rule对象的重要参数含义如下：</p><h6 id="（1）LinkExtractor对象实例"><a href="#（1）LinkExtractor对象实例" class="headerlink" title="（1）LinkExtractor对象实例"></a>（1）LinkExtractor对象实例</h6><p>指定网页内部链接的提取规则，该对象的实例需要指定如下几个参数：</p><p><em>a)allow</em></p><p>指定正则表达式，满足条件的链接才会被提取。若该值为空，则页面中所有的链接全部被提取</p><p><em>b)deny</em></p><p>指定正则表达式，满足条件的链接不会被提取。</p><p><em>c)allow_domains</em></p><p>指定一个或多个域名，在该域名下的链接才会被提取。</p><p><em>d)deny_domains</em></p><p>指定一个或多个域名，在该域名下的链接不会被提取。<br><em>e)tags</em></p><p>指定html元素，默认为’a’和’area’，提取链接时会从这些元素中提取。<br><em>f)attrs</em></p><p>指定html元素属性，默认为’href’，提取链接时会从这些元素属性中提取。<br><em>g)unique</em></p><p>用于设置对提取到的链接是否进行重复过滤。</p><h6 id="（2）callback"><a href="#（2）callback" class="headerlink" title="（2）callback"></a>（2）callback</h6><p>指向一个回调函数。当满足LinkExtractor对象实例条件链接的网页被下载后，会自动调用callback，并将请求的响应传递给callback，这时可在回调函数中提取数据。</p><p><strong>注意：在CrawlSpider的子类中不要定义parse方法</strong></p><h6 id="（3）follow"><a href="#（3）follow" class="headerlink" title="（3）follow"></a>（3）follow</h6><p>表示提取到的内部网页是否需要跟进。若callback为None，则follow默认为True，否则默认为False。</p><h6 id="（4）process-links"><a href="#（4）process-links" class="headerlink" title="（4）process_links"></a>（4）process_links</h6><p>主要用来过滤LinkExtractor对象实例提取到的链接</p><h6 id="（5）process-request"><a href="#（5）process-request" class="headerlink" title="（5）process_request"></a>（5）process_request</h6><p>主要用来过滤LinkExtractor对象实例提取到的请求。</p><p><strong>在开发过程中，最常用的是前三个参数</strong></p><h4 id="2、爬取数据"><a href="#2、爬取数据" class="headerlink" title="2、爬取数据"></a>2、爬取数据</h4>]]></content>
+    <content type="html"><![CDATA[<p>大多数网站的网页链接在命名上都有一定的规则，使用CrawlSpider类可以根据这些规则实现全站爬取。</p><h4 id="1、创建CrawlSpider"><a href="#1、创建CrawlSpider" class="headerlink" title="1、创建CrawlSpider"></a>1、创建CrawlSpider</h4><p>CrawlSpider是Spider的子类，Spider爬取的是start_urls指定的链接，而CrawlSpider则是根据一定的规则在start_urls的基础上进一步爬取页面内部链接。创建CrawlSpider爬虫的命令格式如下：</p><pre><code>scrapy genspider -t crawl 51Job search.51job.com</code></pre><p>其中，<code>“51Job”</code>为爬虫名，<code>“search.51job.com”</code>是爬虫开始爬取的页面。</p><p>执行命令之后，在spider目录下生成a51job.py文件，其内容如下所示：<br><a id="more"></a><br><img src="/2020/05/26/scrapy3-20200526/1.png" alt></p><p>CrawlSpider的规则是一系列Rule对象的元组。Rule对象的重要参数含义如下：</p><h6 id="（1）LinkExtractor对象实例"><a href="#（1）LinkExtractor对象实例" class="headerlink" title="（1）LinkExtractor对象实例"></a>（1）LinkExtractor对象实例</h6><p>指定网页内部链接的提取规则，该对象的实例需要指定如下几个参数：</p><p><em>a)allow</em></p><p>指定正则表达式，满足条件的链接才会被提取。若该值为空，则页面中所有的链接全部被提取</p><p><em>b)deny</em></p><p>指定正则表达式，满足条件的链接不会被提取。</p><p><em>c)allow_domains</em></p><p>指定一个或多个域名，在该域名下的链接才会被提取。</p><p><em>d)deny_domains</em></p><p>指定一个或多个域名，在该域名下的链接不会被提取。<br><em>e)tags</em></p><p>指定html元素，默认为’a’和’area’，提取链接时会从这些元素中提取。<br><em>f)attrs</em></p><p>指定html元素属性，默认为’href’，提取链接时会从这些元素属性中提取。<br><em>g)unique</em></p><p>用于设置对提取到的链接是否进行重复过滤。</p><h6 id="（2）callback"><a href="#（2）callback" class="headerlink" title="（2）callback"></a>（2）callback</h6><p>指向一个回调函数。当满足LinkExtractor对象实例条件链接的网页被下载后，会自动调用callback，并将请求的响应传递给callback，这时可在回调函数中提取数据。</p><p><strong>注意：在CrawlSpider的子类中不要定义parse方法</strong></p><h6 id="（3）follow"><a href="#（3）follow" class="headerlink" title="（3）follow"></a>（3）follow</h6><p>表示提取到的内部网页是否需要跟进。若callback为None，则follow默认为True，否则默认为False。</p><h6 id="（4）process-links"><a href="#（4）process-links" class="headerlink" title="（4）process_links"></a>（4）process_links</h6><p>主要用来过滤LinkExtractor对象实例提取到的链接</p><h6 id="（5）process-request"><a href="#（5）process-request" class="headerlink" title="（5）process_request"></a>（5）process_request</h6><p>主要用来过滤LinkExtractor对象实例提取到的请求。</p><p><strong>在开发过程中，最常用的是前三个参数</strong></p><h4 id="2、爬取数据"><a href="#2、爬取数据" class="headerlink" title="2、爬取数据"></a>2、爬取数据</h4><p>使用CrawlSpider提取51job的数据，如下图所示：<br><img src="/2020/05/26/scrapy3-20200526/2.png" alt></p><p>执行启动爬虫命令：</p><pre><code>scrapy crawl 51job</code></pre><p>执行结果如下所示：<br><img src="/2020/05/26/scrapy3-20200526/3.png" alt></p>]]></content>
     
     <summary type="html">
     
