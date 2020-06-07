@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-28T14:39:01.906Z</updated>
+  <updated>2020-06-07T11:46:20.931Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GIS可视化</title>
+    <link href="http://yoursite.com/2020/06/07/GIS%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://yoursite.com/2020/06/07/GIS%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <published>2020-06-07T02:56:53.000Z</published>
+    <updated>2020-06-07T11:46:20.931Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="百度地图开放平台-开源库"><a href="#百度地图开放平台-开源库" class="headerlink" title="百度地图开放平台-开源库"></a>百度地图开放平台-开源库</h2><p><a href="https://lbsyun.baidu.com/index.php?title=open/library" target="_blank" rel="noopener">https://lbsyun.baidu.com/index.php?title=open/library</a></p><h4 id="1、大数据可视化库"><a href="#1、大数据可视化库" class="headerlink" title="1、大数据可视化库"></a>1、大数据可视化库</h4><p>Mapv是一组基于百度地图的大数据可视化库，可以用来展示大量的点、线、面数据，每种数据也有不同的展示类型，如直接打点、热力图、网络、聚合等方式展示数据</p><p><a href="https://mapv.baidu.com/" target="_blank" rel="noopener">https://mapv.baidu.com/</a></p><h4 id="2、热力图"><a href="#2、热力图" class="headerlink" title="2、热力图"></a>2、热力图</h4><p>提供热力图可视化展现功能，注: 支持chrome, safari, IE9及以上的浏览器. 核心的代码主要来自于第三方heatmap.js, 主入口类是HeatmapOverlay， 基于Baidu Map API 2.0</p><p><a href="http://api.map.baidu.com/library/Heatmap/2.0/docs/symbols/BMapLib.HeatmapOverlay.html" target="_blank" rel="noopener">http://api.map.baidu.com/library/Heatmap/2.0/docs/symbols/BMapLib.HeatmapOverlay.html</a></p><h4 id="3、城市商圈及行政区域"><a href="#3、城市商圈及行政区域" class="headerlink" title="3、城市商圈及行政区域"></a>3、城市商圈及行政区域</h4><p>城市行政区域和商圈数据获取工具类，使用者可以通过调用该接口智能获取城市行政区域和商圈多边形及相关坐标点数据。 主入口类是CityList， 基于Baidu Map API 1.5。</p><p><a href="http://api.map.baidu.com/library/CityList/1.4/docs/symbols/BMapLib.CityList.html" target="_blank" rel="noopener">http://api.map.baidu.com/library/CityList/1.4/docs/symbols/BMapLib.CityList.html</a></p><h4 id="4、绘制弧线类"><a href="#4、绘制弧线类" class="headerlink" title="4、绘制弧线类"></a>4、绘制弧线类</h4><p>提供绘制弧线功能的开源代码库，且用户可通过编辑功能（如开启拖拽起终点、线的宽度与颜色）绘制所需的弧线样式。基于Baidu Map APIv1.5。</p><p><a href="http://api.map.baidu.com/library/CurveLine/1.5/docs/symbols/BMapLib.CurveLine.html" target="_blank" rel="noopener">http://api.map.baidu.com/library/CurveLine/1.5/docs/symbols/BMapLib.CurveLine.html</a></p><h4 id="5、鼠标绘制工具条库"><a href="#5、鼠标绘制工具条库" class="headerlink" title="5、鼠标绘制工具条库"></a>5、鼠标绘制工具条库</h4><p>提供鼠标绘制点、线、面、多边形（矩形、圆）的编辑工具条的开源代码库。且用户可使用JavaScript API对应覆盖物（点、线、面等）类接口对其进行属性（如颜色、线宽等）设置、编辑（如开启线顶点编辑等）等功能。基于Baidu Map API 1.4</p><p><a href="https://lbsyun.baidu.com/jsdemo/demo/f0_7.htm" target="_blank" rel="noopener">鼠标绘制覆盖物示例</a></p><p><a href="http://api.map.baidu.com/library/DrawingManager/1.4/docs/symbols/BMapLib.DrawingManager.html" target="_blank" rel="noopener">http://api.map.baidu.com/library/DrawingManager/1.4/docs/symbols/BMapLib.DrawingManager.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;百度地图开放平台-开源库&quot;&gt;&lt;a href=&quot;#百度地图开放平台-开源库&quot; class=&quot;headerlink&quot; title=&quot;百度地图开放平台-开源库&quot;&gt;&lt;/a&gt;百度地图开放平台-开源库&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://lbsyun.baidu.
+      
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="html5" scheme="http://yoursite.com/tags/html5/"/>
+    
+  </entry>
   
   <entry>
     <title>scrapy之分布式爬虫</title>
